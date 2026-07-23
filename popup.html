@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      width: 320px;
+      margin: 0;
+      font-family: -apple-system, system-ui, sans-serif;
+      padding: 14px;
+    }
+    h1 { font-size: 15px; margin: 0 0 4px; }
+    p.sub { font-size: 11px; color: #888; margin: 0 0 12px; }
+    button {
+      width: 100%;
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 8px;
+    }
+    #scan { background: #e60023; color: #fff; }
+    #download { background: #111; color: #fff; }
+    button:disabled { opacity: 0.45; cursor: default; }
+    #status {
+      font-size: 12px;
+      background: rgba(127,127,127,0.12);
+      border-radius: 8px;
+      padding: 10px;
+      min-height: 18px;
+      white-space: pre-wrap;
+    }
+    #progWrap {
+      display: none;
+      margin-top: 10px;
+    }
+    #progBar {
+      height: 10px;
+      width: 100%;
+      background: rgba(127,127,127,0.2);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    #progFill {
+      height: 100%;
+      width: 0%;
+      background: #0a7d2e;
+      transition: width 0.2s ease;
+    }
+    #progText {
+      font-size: 11px;
+      color: #888;
+      margin-top: 4px;
+      text-align: right;
+    }
+    .board { font-weight: 600; }
+    .count { color: #e60023; font-weight: 700; }
+    .warn { color: #b26a00; font-size: 11px; margin-top: 10px; line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <h1>Pinterest Board Downloader</h1>
+  <p class="sub">Bir board sayfasını aç, önce tara sonra indir.</p>
+
+  <button id="scan">1 · Board'u tara</button>
+  <button id="download" disabled>2 · Tümünü indir</button>
+  <button id="downloadAll" style="display:none; background:#0a7d2e; color:#fff;">Tüm board'ları indir</button>
+  <button id="stop" style="display:none; background:#b00020; color:#fff;">■ Durdur</button>
+
+  <div id="status">Hazır. Bir Pinterest board veya profil sayfasında aç.</div>
+
+  <div id="progWrap">
+    <div id="progBar"><div id="progFill"></div></div>
+    <div id="progText">0 / 0</div>
+  </div>
+
+  <div class="warn">Yalnızca kendine ait / erişim iznin olan board'larda kullan. Pinterest'in kullanım şartlarına ve telif haklarına uy.</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
