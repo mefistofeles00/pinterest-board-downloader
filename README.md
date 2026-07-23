@@ -2,6 +2,8 @@
 
 A Chrome extension that lists every pin in a Pinterest board and downloads all the images into a folder named after the board — in one click.
 
+![Demo of the extension scanning a board and downloading all pins](demo.gif)
+
 ## Features
 
 - **One board or all of them** — open a board and grab it, or open a profile and let it walk through every board automatically.
